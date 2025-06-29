@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+
+    <style>
+      .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #36302d;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.chessboard {
+  width: min(90vmin, 640px);
+  height: min(90vmin, 640px);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border: 2px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+     
+
+      .piece.white{
+        color:white;
+        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 3));
+      }
+      .piece.black{
+        color:black;
+      }
+      .flipped{
+        transform: rotate(180deg);
+      }
+      .square{
+        display: flex;
+        align-items:center;
+        justify-self: center;
+        width: 100%;
+        height: 100%; 
+      }
+
+      .square.light{
+        background-color: #ffffff;
+      }
+      .square.dark{
+        background-color: #18181b;
+      }
+      .piece {
+        font-size: 36px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+         font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+        }
+
+      .piece.dragggable{
+        cursor: grab;
+      }
+      .dragging{
+        opacity: 0.5;;
+      }
+      .flipped .piece{
+        transform: rotate(180deg);
+      }
+
+    </style>
+  </head>
+  <body>
+    
+    <div class = "container">
+      <div class="chessboard">
+          
+      </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/js/chessGame.js"></script>
+  </body>
+</html>
